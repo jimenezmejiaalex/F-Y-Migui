@@ -8,7 +8,7 @@ import Container from '@material-ui/core/Container';
 import { FormControl, FormHelperText, InputLabel, MenuItem, Select } from '@material-ui/core';
 import { database, storage } from '../../../firebase/app';
 import { COLLECTION_MEASURE } from '../../../utils/consts';
-import FileUpload from '../../../components/fileUpload';
+import FileUpload from '../../../components/FileUpload';
 import { useAppContext } from '../../../context/store';
 import axios from 'axios';
 

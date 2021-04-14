@@ -8,12 +8,12 @@ import Container from '@material-ui/core/Container';
 import { FormControl, FormHelperText, InputLabel, MenuItem, Select } from '@material-ui/core';
 import { database, storage } from '../../../firebase/app';
 import { COLLECTION_CLIENT, COLLECTION_MEASURE, COLLECTION_PRODUCT, COOKIES_USER_ID } from '../../../utils/consts';
-import FileUpload from '../../../components/fileUpload';
 import { useAppContext } from '../../../context/store';
 import axios from 'axios';
 import { getItemByRef } from '../../../firebase/utils';
 import { useRouter } from 'next/router';
 import { parseCookies } from 'nookies';
+import FileUpload from '../../../components/fileUpload';
 
 const useStyles = makeStyles((theme) => ({
     paper: {
