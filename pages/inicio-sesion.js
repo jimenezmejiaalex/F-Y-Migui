@@ -15,9 +15,9 @@ import Container from '@material-ui/core/Container';
 import { useAppContext } from '../context/store';
 import axios from 'axios';
 import { parseCookies, setCookie } from 'nookies';
-import { COOKIES_USER_EMAIL, COOKIES_USER_ID } from '../utils/consts';
+import { COLLECTION_CLIENT, COOKIES_USER_EMAIL, COOKIES_USER_ID } from '../utils/consts';
 import { useRouter } from 'next/router';
-import { auth } from '../firebase/app';
+import { auth, database } from '../firebase/app';
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -139,4 +139,33 @@ export default function SignIn() {
             </div>
         </Container>
     );
+}
+
+export const getServerSideProps = async (ctx) => {
+    const userId = parseCookies(ctx)[COOKIES_USER_ID];
+    if (userId) {
+        const clientRef = database.collection(COLLECTION_CLIENT);
+        const client = await clientRef.doc(userId).get();
+        if (client.exists && client.data().isAdmin) {
+            return {
+                redirect: {
+                    permanent: false,
+                    destination: '/panel'
+                }
+            }
+        } else {
+            return {
+                redirect: {
+                    permanent: false,
+                    destination: '/listas'
+                }
+            }
+        }
+    }
+
+    return {
+        props: {
+            data: null
+        }
+    }
 }
