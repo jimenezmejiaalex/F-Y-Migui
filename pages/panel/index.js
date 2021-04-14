@@ -59,13 +59,13 @@ function Panel({ products, orders }) {
     const handleDeleteOrder = (id) => { }
     const handleEditOrder = (id) => {
         setLoading(true);
-        router.push(`/listas/${id}`).then(() => setLoading(false))
+        router.push(`/panel/listas/${id}`).then(() => setLoading(false))
     }
     const orderParsed = orders.map(
         order => ({
             ...order,
             client: `${order.client.firstName} ${order.client.lastName}`,
-            handleEdit: () => handleEditOrder(order.date),
+            handleEdit: () => handleEditOrder(order.id),
             handleDelete: () => handleDeleteOrder(order.id)
         })
     );
