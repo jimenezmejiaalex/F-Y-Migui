@@ -1,0 +1,10 @@
+export const COLLECTION_LIST = 'lists';
+export const COLLECTION_PRODUCT = 'products';
+export const COLLECTION_MEASURE = 'measures';
+export const COLLECTION_CLIENT = 'clients';
+export const COOKIES_USER_ID = 'FYV_user_id';
+export const COOKIES_USER_EMAIL = 'FYV_user_email';
+export const ERROR_EMAIL_ALREADY_IN_USE = 'auth/email-already-in-use';
+export const ERROR_WRONG_PASSWORD = 'auth/wrong-password';
+export const DELETE_CONFIRMATION_MESSAGE = 'Esta seguro que desea eliminar el item';
+export const DELETE_CONFIRMATION_TITLE = 'Alerta - Eliminar item';
