@@ -13,7 +13,7 @@ import axios from 'axios';
 import { getItemByRef } from '../../../firebase/utils';
 import { useRouter } from 'next/router';
 import { parseCookies } from 'nookies';
-import FileUpload from '../../../components/fileUpload';
+import FileUpload from '../../../components/FileUpload';
 
 const useStyles = makeStyles((theme) => ({
     paper: {
