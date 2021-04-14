@@ -107,7 +107,6 @@ function SignUp() {
         if (validateInputs()) {
             if (validEmailRegex.test(form.email)) {
                 if (form.password && form.password.length < 6) {
-
                     setErrors(true)
                     setErrorMessage("La contraseña debe tener mínimo 6 caracteres")
                     setShowSpinner(false);

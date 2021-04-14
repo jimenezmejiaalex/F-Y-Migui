@@ -74,6 +74,10 @@ function Panel({ products, orders }) {
         setLoading(true);
         router.push('/panel/productos/crear').then((() => setLoading(false)));
     }
+    const handleCreateOrder = () => {
+        setLoading(true);
+        router.push('/panel/listas/crear').then((() => setLoading(false)));
+    }
     const handleGoToAllOrders = () => {
         setLoading(true);
         router.push('/panel/listas').then(() => setLoading(false));
@@ -125,7 +129,7 @@ function Panel({ products, orders }) {
                         action={
                             <Button
                                 className={classes.actionButton}
-                                onClick={handleCreateProduct}
+                                onClick={handleCreateOrder}
                                 color="primary"
                                 variant="contained"
                                 startIcon={<AddCircleOutlined />}

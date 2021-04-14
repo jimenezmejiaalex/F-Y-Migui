@@ -7,10 +7,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { FormControl, FormHelperText, InputLabel, MenuItem, Select } from '@material-ui/core';
 import { database, storage } from '../../../firebase/app';
-import { COLLECTION_MEASURE } from '../../../utils/consts';
+import { COLLECTION_CLIENT, COLLECTION_MEASURE, COOKIES_USER_ID } from '../../../utils/consts';
 import FileUpload from '../../../components/FileUpload';
 import { useAppContext } from '../../../context/store';
 import axios from 'axios';
+import { parseCookies } from 'nookies';
 
 const useStyles = makeStyles((theme) => ({
     paper: {

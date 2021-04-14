@@ -139,7 +139,7 @@ function Crear({ clients = [] }) {
                                 >
                                     {
                                         clients.map(
-                                            client => <MenuItem value={client.id}>{`${client.firstName} - ${client.comercio}`}</MenuItem>
+                                            client => <MenuItem key={client.id} value={client.id}>{`${client.firstName} - ${client.address}`}</MenuItem>
                                         )
                                     }
                                 </Select>
@@ -199,7 +199,7 @@ export const getServerSideProps = async (ctx) => {
     const clients = await clientRef.get();
     return {
         props: {
-            clients: clients.docs.map(doc => ({ id: doc.id, ...doc.data() }))
+            clients: clients.docs.map(doc => ({ id: doc.id, ...doc.data() })).filter(client => !client.isAdmin)
         }
     }
 }
